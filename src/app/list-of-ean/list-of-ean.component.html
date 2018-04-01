@@ -6,7 +6,7 @@
           <h4 class="sidebar-heading">Generator listy</h4>
           <form>
             <div class="form-group">
-              <input type="text" class="form-control" id="inputEAN" placeholder="Wprowadź EAN" name="ean" [(ngModel)]="item.ean" autofocus [(readonly)]="iEreadonly">
+              <input type="text" class="form-control" id="inputEAN" placeholder="Wprowadź EAN" name="ean" [(ngModel)]="item.ean" [(readonly)]="iEreadonly" autofocus>
             </div>
             <div class="form-group">
               <input type="number" class="form-control" id="inputQuantity" placeholder="Wprowadź ilość" name="quantity" [(ngModel)]="item.quantity" [(readonly)]="iQreadonly">
@@ -21,6 +21,10 @@
             </div>
             <input type="submit" class="btn btn-primary" value="Dodaj" (click)="addItem()">
           </form>
+          
+          <div id="stats">
+            <p>Ilość pozycji: {{ articels.length }}</p>
+          </div>
         </div>
       </div>
 
@@ -34,36 +38,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let articel of articels; let i = index" (click)="editItem(i)">
+              <tr id="pos{{i}}" *ngFor="let articel of articels; let i = index" (click)="editItem(i)">
                 <th scope="row">{{ i+1 }}</th>
                 <td>{{ articel.ean }}</td>
                 <td>{{ articel.quantity }}</td>
                 <td>
-                  <button type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeItem(i)">X</button>
                 </td>
               </tr>
             </tbody>
           </table>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, modi enim esse laborum ipsa deserunt, delectus eos ex nulla quos similique facilis? Veniam quibusdam repudiandae dicta modi excepturi, eius explicabo.</p>
-        <p>Cum optio omnis, at ipsum, dolorem, aut enim nobis vel fuga facere quos voluptates soluta accusamus. Corrupti autem consequuntur culpa, blanditiis cum labore minima et quo consectetur, nostrum perspiciatis sapiente.</p>
-        <p>Sequi quo harum quas neque facere sit eius, ducimus officia fugiat, iusto nemo tenetur aut voluptatum dolores eum, alias minima placeat illo voluptatibus mollitia non est necessitatibus! Consectetur, alias quam?</p>
-        <p>Omnis iste vero, perferendis architecto neque sed animi ullam ab aut numquam, non praesentium necessitatibus dolorum, sint ad alias. Ex suscipit, quam rerum molestiae nemo velit iste unde autem nulla?</p>
-        <p>Odio aut tempore dolore debitis dignissimos ducimus ad dolor officiis necessitatibus, explicabo quisquam et iure veritatis laboriosam, voluptates sed totam sequi. Magnam accusantium explicabo doloribus eius odio voluptatum, porro nobis?</p>
-        <p>Nobis blanditiis possimus accusantium dolor error nisi dolorum iste autem alias illo earum odio distinctio ipsa aut similique eos placeat, nostrum vel, ut quisquam, sapiente reiciendis harum. Adipisci, minus veniam.</p>
-        <p>Natus quaerat, tempora corrupti, praesentium delectus facere atque ullam blanditiis magnam odio iste, nostrum asperiores? Consectetur aut, culpa animi, illo dolorem labore eos quis eveniet tenetur beatae maiores temporibus nostrum.</p>
-        <p>Corporis libero, unde rerum facilis, voluptates amet ipsa nobis explicabo aperiam dolores dicta rem sequi delectus? Animi enim tempore dicta odio! Laborum commodi sunt explicabo! Vero, numquam minus! Vel, libero!</p>
-        <p>Recusandae, neque placeat! Eveniet cupiditate expedita quas sequi incidunt repellat. Est aspernatur doloribus quas inventore repellat vero eligendi illo iure suscipit blanditiis aliquid, dolorum cum temporibus iusto id voluptas excepturi.</p>
-        <p>Rem, autem at incidunt velit molestiae deleniti sapiente quod possimus. Ducimus dolor iusto itaque magni inventore nobis exercitationem quod provident atque nihil expedita possimus beatae, ut necessitatibus? Itaque, labore totam.</p>
-        <p>Est itaque impedit possimus cupiditate totam tempora beatae nulla voluptatibus voluptate voluptas sed quidem neque voluptatum iste praesentium distinctio dolor aperiam, fugiat, odit rem in, rerum vitae? Obcaecati, ut delectus.</p>
-        <p>Ducimus sint culpa dolores commodi, recusandae suscipit. Optio animi soluta veritatis sint blanditiis voluptates quo commodi ex temporibus quam. Eaque possimus vel ut optio pariatur, ipsum quae esse dolorum minus?</p>
-        <p>Eos, quas expedita similique voluptate soluta minus, reprehenderit ipsa cupiditate eum saepe, nulla asperiores maiores ut esse dignissimos? Alias inventore omnis sunt eligendi ratione ipsa cupiditate totam modi, labore consequuntur.</p>
-        <p>Ipsam non totam laborum voluptas assumenda asperiores odit aperiam corporis sint possimus! Reiciendis recusandae delectus, ut et in magni exercitationem at, ab modi atque amet, laboriosam id possimus quod quas!</p>
-        <p>Voluptate quam nisi dolor placeat, commodi omnis atque maiores alias odio dignissimos nemo ipsa consectetur molestias in sint labore sit architecto laborum dolore at eius consequatur tempora facilis. Laborum, dolore!</p>
-        <p>Vero, quos maxime quidem ab quaerat incidunt aut voluptate dolore, officiis sit qui enim atque earum adipisci itaque sint exercitationem et natus consequuntur? Eum natus distinctio nostrum amet accusantium quae.</p>
-        <p>Provident repellendus quisquam eius neque recusandae veritatis praesentium, quam soluta est ut nobis vel nemo fugit iusto natus illum quidem adipisci voluptatum a fugiat. Eveniet ab explicabo velit id repudiandae.</p>
-        <p>Rem dolorum ex consectetur reprehenderit dolor quaerat laborum delectus error, corrupti ducimus modi deleniti voluptates labore reiciendis quis. Dolorem iste molestiae ex tenetur, quisquam magni incidunt debitis eos perspiciatis odio?</p>
-        <p>Aperiam debitis tenetur provident amet culpa ab consequatur ipsum accusamus cupiditate exercitationem esse hic sint omnis dolore et magni, fuga cum corporis. Nemo asperiores id, distinctio et ipsam unde natus.</p>
-        <p>Quae, sunt repudiandae nobis, quis autem dolores laudantium magnam possimus quibusdam ullam similique voluptate qui maiores exercitationem blanditiis neque enim. Quaerat nulla magni optio dignissimos veniam vel quam pariatur saepe?</p>
       </main>
     </div>
   </div>

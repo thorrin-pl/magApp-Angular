@@ -26,8 +26,17 @@ export class ListOfEanComponent implements OnInit {
   }
 
   defaultWorkspace() {
+    // scrolling to bootom when added elemet
+    if (!this.iEreadonly) {
+      const body = document.body,
+      html = document.documentElement;
+
+      const height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+      window.scrollTo(0, height);
+    }
+
     // applying default state of workspace:
-    // this.renderer.removeAttribute(this.iE, 'readonly');
     this.iEreadonly = false;
     this.iE.focus();
     this.item = {
@@ -52,8 +61,8 @@ export class ListOfEanComponent implements OnInit {
     if (existingArticle === false) {
       this.articels[this.currentItem] = this.item;
     }
-    this.currentItem = this.articels.length;
     this.defaultWorkspace(); // applying default state of workspace
+    this.currentItem = this.articels.length;
   }
 
   removeItem(i) {
