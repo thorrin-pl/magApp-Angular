@@ -26,6 +26,16 @@ export class ListOfEanComponent implements OnInit {
   }
 
   defaultWorkspace() {
+    // scrolling to bootom when added elemet
+    if (!this.iEreadonly) {
+      const body = document.body,
+      html = document.documentElement;
+
+      const height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+      window.scrollTo(0, height);
+    }
+
     // applying default state of workspace:
     this.iEreadonly = false;
     this.iE.focus();

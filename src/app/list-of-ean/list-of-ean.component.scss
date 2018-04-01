@@ -32,3 +32,13 @@
 	overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
 }
+
+main {
+	padding-bottom: 3em;
+}
+
+#stats {
+	position: fixed;
+	bottom: -1em;
+	left: 0.5em;
+}
