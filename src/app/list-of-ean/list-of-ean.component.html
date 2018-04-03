@@ -29,16 +29,17 @@
       </div>
 
       <main role="main" class="col-12 col-sm-8 ml-auto col-md-9 pt-3 px-4">
-        <table class="table table-hover">
-            <thead>
+        <table class="table table-hover table-sm">
+            <thead class="thead-dark">
               <tr>
                 <th scope="col">Lp.</th>
                 <th scope="col">Wprowadzony EAN</th>
                 <th scope="col">Ilość</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <tr id="pos{{i}}" *ngFor="let articel of articels; let i = index" (click)="editItem(i)">
+              <tr *ngFor="let articel of articels; let i = index" [class.text-white]="i === currentItem" [class.bg-primary]="i === currentItem" (click)="editItem(i)">
                 <th scope="row">{{ i+1 }}</th>
                 <td>{{ articel.ean }}</td>
                 <td>{{ articel.quantity }}</td>

@@ -1,4 +1,4 @@
-import { Renderer2, Component, OnInit, ViewChild } from '@angular/core';
+import { Renderer2, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-list-of-ean',
@@ -14,6 +14,7 @@ export class ListOfEanComponent implements OnInit {
   };
   currentItem: number;
   iE;
+  iQ;
   iEreadonly = false;
   iQreadonly = false;
   oboChecked = false;
@@ -23,6 +24,8 @@ export class ListOfEanComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.iE = this.renderer.selectRootElement('#inputEAN');
+    this.iQ = this.renderer.selectRootElement('#inputQuantity');
   }
 
   defaultWorkspace() {
@@ -47,7 +50,6 @@ export class ListOfEanComponent implements OnInit {
 
   addItem() {
     let existingArticle = false;
-    this.iE = this.renderer.selectRootElement('#inputEAN');
     this.articels.forEach((element, index) => {
       if (element.ean === this.item.ean) {
         if (this.iEreadonly === true) {
@@ -74,7 +76,6 @@ export class ListOfEanComponent implements OnInit {
   editItem(i) {
     this.currentItem = i;
     this.item.ean = this.articels[i].ean;
-    // this.renderer.setAttribute(this.iE, 'readonly', 'true');
     this.iEreadonly = true;
     this.item.quantity = this.articels[i].quantity;
   }
